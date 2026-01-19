@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>artxikd</title>
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(120,120,120,0.08), transparent 40%),
+        radial-gradient(circle at bottom, rgba(0,0,0,0.9), transparent 60%),
+        #0b0b0d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e5e5e5;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(20, 20, 24, 0.85);
+      backdrop-filter: blur(14px);
+      border-radius: 22px;
+      padding: 28px 22px 26px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.6);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      background: url("https://i.imgur.com/8Km9tLL.png") center/cover no-repeat;
+      filter: grayscale(100%);
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .desc {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.55;
+      margin-top: 6px;
+      margin-bottom: 22px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #dcdcdc;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.25s ease;
+    }
+
+    .link i {
+      font-size: 18px;
+      opacity: 0.7;
+      width: 22px;
+      text-align: center;
+    }
+
+    .link span {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .link:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.25;
+      margin-top: 22px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 380px) {
+      .card {
+        margin: 16px;
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="avatar"></div>
+
+    <h1>artxikd</h1>
+    <div class="desc">absence</div>
+
+    <div class="links">
+      <a class="link" href="https://t.me/artxikd" target="_blank">
+        <i class="fa-brands fa-telegram"></i>
+        <span>Telegram</span>
+      </a>
+
+      <a class="link" href="https://t.me/artxikddd" target="_blank">
+        <i class="fa-solid fa-broadcast-tower"></i>
+        <span>Telegram Channel</span>
+      </a>
+
+      <a class="link" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+        <i class="fa-brands fa-tiktok"></i>
+        <span>TikTok</span>
+      </a>
+
+      <a class="link" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+
+    <footer>
+      nothing personal
+    </footer>
+  </div>
+
+</body>
+                                                 </html>
