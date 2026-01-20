@@ -33,7 +33,7 @@
 
     .card {
       width: 100%;
-      max-width: 340px; /* уже, как у Зубарева */
+      max-width: 340px;
       background: rgba(20, 20, 24, 0.85);
       backdrop-filter: blur(14px);
       border-radius: 20px;
@@ -70,9 +70,27 @@
       letter-spacing: 0.8px;
     }
 
+    /* 🔵 АНИМИРОВАННАЯ ГАЛОЧКА */
     .check {
-      color: #3b82f6; /* синяя галочка */
+      color: #3b82f6;
       font-size: 14px;
+      animation: pulse 2.2s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(59,130,246,0.6));
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
     }
 
     .desc {
@@ -137,7 +155,6 @@
 
     <div class="name">
       <h1>artxikd</h1>
-      <i class="fa-solid fa-circle-check check"></i>
       <i class="fa-solid fa-circle-check check"></i>
     </div>
 
