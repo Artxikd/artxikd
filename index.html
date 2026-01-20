@@ -33,43 +33,54 @@
 
     .card {
       width: 100%;
-      max-width: 420px;
+      max-width: 340px; /* уже, как у Зубарева */
       background: rgba(20, 20, 24, 0.85);
       backdrop-filter: blur(14px);
-      border-radius: 22px;
-      padding: 28px 22px 26px;
+      border-radius: 20px;
+      padding: 26px 20px 24px;
       box-shadow: 0 0 60px rgba(0,0,0,0.6);
       animation: fadeIn 1.2s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
+      from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
-      margin: 0 auto 16px;
-      background: url("https://i.imgur.com/8Km9tLL.png") center/cover no-repeat;
+      margin: 0 auto 14px;
+      background: url("avatar.jpg") center/cover no-repeat;
       filter: grayscale(100%);
       box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
 
+    .name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
     h1 {
-      text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
+    }
+
+    .check {
+      color: #3b82f6; /* синяя галочка */
+      font-size: 14px;
     }
 
     .desc {
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       opacity: 0.55;
       margin-top: 6px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       letter-spacing: 2px;
       text-transform: lowercase;
     }
@@ -77,15 +88,15 @@
     .links {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .link {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      border-radius: 14px;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 12px;
       text-decoration: none;
       color: #dcdcdc;
       background: rgba(255,255,255,0.03);
@@ -94,15 +105,15 @@
     }
 
     .link i {
-      font-size: 18px;
+      font-size: 16px;
       opacity: 0.7;
-      width: 22px;
+      width: 20px;
       text-align: center;
     }
 
     .link span {
-      font-size: 14px;
-      letter-spacing: 0.5px;
+      font-size: 13px;
+      letter-spacing: 0.4px;
     }
 
     .link:hover {
@@ -112,17 +123,10 @@
 
     footer {
       text-align: center;
-      font-size: 11px;
+      font-size: 10px;
       opacity: 0.25;
-      margin-top: 22px;
+      margin-top: 20px;
       letter-spacing: 1px;
-    }
-
-    @media (max-width: 380px) {
-      .card {
-        margin: 16px;
-        padding: 24px 18px;
-      }
     }
   </style>
 </head>
@@ -131,7 +135,12 @@
   <div class="card">
     <div class="avatar"></div>
 
-    <h1>artxikd</h1>
+    <div class="name">
+      <h1>artxikd</h1>
+      <i class="fa-solid fa-circle-check check"></i>
+      <i class="fa-solid fa-circle-check check"></i>
+    </div>
+
     <div class="desc">absence</div>
 
     <div class="links">
@@ -162,4 +171,4 @@
   </div>
 
 </body>
-                                                 </html>
+</html>
