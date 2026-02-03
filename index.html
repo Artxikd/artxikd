@@ -1,207 +1,238 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>artxikd</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>artxikd</title>
 
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(120,120,120,0.08), transparent 40%),
+    radial-gradient(circle at bottom, rgba(0,0,0,0.9), transparent 60%),
+    #0b0b0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e5e5e5;
+  overflow: hidden;
+}
 
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top, rgba(120,120,120,0.08), transparent 40%),
-        radial-gradient(circle at bottom, rgba(0,0,0,0.9), transparent 60%),
-        #0b0b0d;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #e5e5e5;
-      overflow: hidden;
-    }
+/* 🌫 NOISE */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
 
-    /* 🌫 ЗЕРНО */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1;
-    }
+/* ⏳ iOS LOADER */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #0b0b0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: loaderOut 1s ease forwards;
+  animation-delay: 1.8s;
+}
 
-    .card {
-      width: 100%;
-      max-width: 340px;
-      background: rgba(20, 20, 24, 0.85);
-      backdrop-filter: blur(14px);
-      border-radius: 20px;
-      padding: 26px 20px 24px;
-      box-shadow: 0 0 60px rgba(0,0,0,0.6);
-      animation: fadeIn 1.2s ease;
-      position: relative;
-      z-index: 2;
-    }
+.loader-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-top: 2px solid #3b82f6;
+  animation: spin 1s linear infinite;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      margin: 0 auto 14px;
-      background: url("avatar.jpg") center/cover no-repeat;
-      filter: grayscale(100%);
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    }
+@keyframes loaderOut {
+  to { opacity: 0; visibility: hidden; }
+}
 
-    .name {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-    }
+/* 🧊 CARD */
+.card {
+  width: 100%;
+  max-width: 340px;
+  background: rgba(20, 20, 24, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 26px 20px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  animation: fadeIn 1.2s ease;
+  position: relative;
+  z-index: 2;
+}
 
-    h1 {
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.8px;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* ❄️ ГАЛОЧКА */
-    .check {
-      color: #3b82f6;
-      font-size: 14px;
-      opacity: 0;
-      transform: scale(0.85);
-      animation:
-        checkAppear 1s ease forwards 1.2s,
-        coldBreath 6s ease-in-out infinite 2.2s;
-      filter: drop-shadow(0 0 4px rgba(59,130,246,0.35));
-    }
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  background: url("avatar.jpg") center/cover no-repeat;
+  filter: grayscale(100%);
+}
 
-    @keyframes checkAppear {
-      to { opacity: 1; transform: scale(1); }
-    }
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
 
-    @keyframes coldBreath {
-      0%, 100% { opacity: 0.65; }
-      50% { opacity: 1; }
-    }
+h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
 
-    .desc {
-      text-align: center;
-      font-size: 12px;
-      opacity: 0.55;
-      margin-top: 6px;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-      word-break: break-word;
-    }
+/* ❄️ CHECK */
+.check {
+  color: #3b82f6;
+  font-size: 14px;
+  opacity: 0;
+  animation: checkIn 1s ease forwards 2.2s;
+}
 
-    /* 💎 GLASS BUTTONS */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+@keyframes checkIn {
+  to { opacity: 1; }
+}
 
-    .glass-btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      border-radius: 16px;
-      text-decoration: none;
-      color: #e5e5e5;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-      font-size: 14px;
-    }
+.desc {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.55;
+  margin: 6px 0 22px;
+  letter-spacing: 1px;
+}
 
-    .glass-btn i {
-      font-size: 16px;
-    }
+/* 💎 BUTTONS */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    .glass-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
+.glass-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #e5e5e5;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: btnIn 0.6s ease forwards;
+}
 
-    footer {
-      text-align: center;
-      font-size: 10px;
-      opacity: 0.25;
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
+.glass-btn:nth-child(1){ animation-delay: 2.0s; }
+.glass-btn:nth-child(2){ animation-delay: 2.15s; }
+.glass-btn:nth-child(3){ animation-delay: 2.3s; }
+.glass-btn:nth-child(4){ animation-delay: 2.45s; }
 
-    @media (max-width: 400px) {
-      .card { padding: 20px 16px; }
-      .glass-btn { padding: 12px 16px; font-size: 13px; }
-      h1 { font-size: 18px; }
-    }
-  </style>
+@keyframes btnIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ SHINE */
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.25),
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.glass-btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* 📱 PRESS */
+.glass-btn:active {
+  transform: scale(0.97);
+}
+
+footer {
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.25;
+  margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+  h1 { font-size: 18px; }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <div class="avatar"></div>
+<div class="loader">
+  <div class="loader-ring"></div>
+</div>
 
-    <div class="name">
-      <h1>artxikd</h1>
-      <i class="fa-solid fa-circle-check check"></i>
-    </div>
+<div class="card">
+  <div class="avatar"></div>
 
-    <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
-
-    <div class="links">
-      <!-- 1️⃣ Instagram -->
-      <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-        <span>Instagram</span>
-      </a>
-
-      <!-- 2️⃣ Telegram -->
-      <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
-        <i class="fa-brands fa-telegram"></i>
-        <span>Telegram</span>
-      </a>
-
-      <!-- 3️⃣ TikTok -->
-      <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
-        <i class="fa-brands fa-tiktok"></i>
-        <span>TikTok</span>
-      </a>
-
-      <!-- 4️⃣ Telegram Channel -->
-      <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
-        <i class="fa-solid fa-broadcast-tower"></i>
-        <span>Telegram Channel</span>
-      </a>
-    </div>
-
-    <footer>nothing personal</footer>
+  <div class="name">
+    <h1>artxikd</h1>
+    <i class="fa-solid fa-circle-check check"></i>
   </div>
+
+  <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
+
+  <div class="links">
+    <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
+      <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+    <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
+      <i class="fa-brands fa-telegram"></i> Telegram
+    </a>
+    <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+      <i class="fa-brands fa-tiktok"></i> TikTok
+    </a>
+    <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
+      <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
+    </a>
+  </div>
+
+  <footer>nothing personal</footer>
+</div>
 
 </body>
 </html>
