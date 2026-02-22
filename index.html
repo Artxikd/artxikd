@@ -39,7 +39,7 @@ body::after {
   z-index: 1;
 }
 
-/* 🍎 iOS SMOOTH LOADER */
+/* 🍎 iOS LOADER */
 .loader {
   position: fixed;
   inset: 0;
@@ -62,25 +62,13 @@ body::after {
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.8);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.8); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
 }
 
 @keyframes loaderFadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
 }
 
 /* 🧊 CARD */
@@ -123,7 +111,6 @@ h1 {
   font-weight: 500;
 }
 
-/* ❄️ CHECK */
 .check {
   color: #3b82f6;
   font-size: 14px;
@@ -161,11 +148,15 @@ h1 {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(12px);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .glass-btn:active {
   transform: scale(0.97);
+}
+
+.glass-btn.bump {
+  box-shadow: 0 0 18px rgba(59,130,246,0.25);
 }
 
 footer {
@@ -202,14 +193,21 @@ footer {
     <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
       <i class="fa-brands fa-instagram"></i> Instagram
     </a>
+
     <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
       <i class="fa-brands fa-telegram"></i> Telegram
     </a>
+
     <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
       <i class="fa-brands fa-tiktok"></i> TikTok
     </a>
+
     <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
       <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
+    </a>
+
+    <a class="glass-btn bump" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+      <i class="fa-solid fa-user-plus"></i> Add on Bump
     </a>
   </div>
 
