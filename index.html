@@ -1,217 +1,230 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>artxikd</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(120,120,120,0.08), transparent 40%),
-    radial-gradient(circle at bottom, rgba(0,0,0,0.9), transparent 60%),
-    #0b0b0d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #e5e5e5;
-  overflow: hidden;
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+radial-gradient(circle at top,rgba(120,120,120,0.08),transparent 40%),
+radial-gradient(circle at bottom,rgba(0,0,0,0.9),transparent 60%),
+#0b0b0d;
+color:#e5e5e5;
+overflow:hidden;
 }
 
-/* 🌫 NOISE */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
+/* noise */
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+pointer-events:none;
+z-index:1;
 }
 
-/* 🍎 iOS LOADER */
-.loader {
-  position: fixed;
-  inset: 0;
-  background: #0b0b0d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: loaderFadeOut 1.2s ease forwards;
-  animation-delay: 2.2s;
+/* loader */
+
+.loader{
+position:fixed;
+inset:0;
+background:#0b0b0d;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeLoader 1s ease forwards;
+animation-delay:2s;
 }
 
-.loader-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #3b82f6;
-  box-shadow: 0 0 12px rgba(59,130,246,0.6);
-  animation: pulse 1.4s ease-in-out infinite;
+.loader-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#3b82f6;
+box-shadow:0 0 12px rgba(59,130,246,0.6);
+animation:pulse 1.4s infinite;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.8); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.6; }
+@keyframes pulse{
+0%{transform:scale(1);opacity:.6;}
+50%{transform:scale(1.8);opacity:1;}
+100%{transform:scale(1);opacity:.6;}
 }
 
-@keyframes loaderFadeOut {
-  to { opacity: 0; visibility: hidden; }
+@keyframes fadeLoader{
+to{opacity:0;visibility:hidden;}
 }
 
-/* 🧊 CARD */
-.card {
-  width: 100%;
-  max-width: 340px;
-  background: rgba(20, 20, 24, 0.85);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 26px 20px;
-  box-shadow: 0 0 60px rgba(0,0,0,0.6);
-  animation: fadeIn 1.2s ease;
-  position: relative;
-  z-index: 2;
+/* card */
+
+.card{
+width:100%;
+max-width:340px;
+background:rgba(20,20,24,.85);
+backdrop-filter:blur(14px);
+border-radius:20px;
+padding:26px 20px;
+box-shadow:0 0 60px rgba(0,0,0,.6);
+animation:fadeIn 1.2s ease;
+position:relative;
+z-index:2;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(14px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-.avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin: 0 auto 14px;
-  background: url("avatar.jpg") center/cover no-repeat;
-  filter: grayscale(100%);
+/* avatar */
+
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+margin:0 auto 14px;
+background:url("avatar.jpg") center/cover no-repeat;
+filter:grayscale(100%);
 }
 
-.name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
+/* name */
+
+.name{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:6px;
 }
 
-h1 {
-  font-size: 20px;
-  font-weight: 500;
+h1{
+font-size:20px;
+font-weight:500;
 }
 
-.check {
-  color: #3b82f6;
-  font-size: 14px;
-  opacity: 0;
-  animation: checkIn 1s ease forwards 2.6s;
+.check{
+color:#3b82f6;
+font-size:14px;
+opacity:0;
+animation:checkIn 1s ease forwards 2.6s;
 }
 
-@keyframes checkIn {
-  to { opacity: 1; }
+@keyframes checkIn{
+to{opacity:1;}
 }
 
-.desc {
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.55;
-  margin: 6px 0 22px;
-  letter-spacing: 1px;
+.desc{
+text-align:center;
+font-size:12px;
+opacity:.55;
+margin:6px 0 22px;
+letter-spacing:1px;
 }
 
-/* 💎 BUTTONS */
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* links */
+
+.links{
+display:flex;
+flex-direction:column;
+gap:12px;
 }
 
-.glass-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #e5e5e5;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+.glass-btn{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px 18px;
+border-radius:16px;
+text-decoration:none;
+color:#e5e5e5;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+transition:.2s;
 }
 
-.glass-btn:active {
-  transform: scale(0.97);
+.glass-btn:active{
+transform:scale(.97);
 }
 
-.glass-btn.bump {
-  box-shadow: 0 0 18px rgba(59,130,246,0.25);
+.glass-btn.bump{
+box-shadow:0 0 18px rgba(59,130,246,.25);
 }
 
-footer {
-  text-align: center;
-  font-size: 10px;
-  opacity: 0.25;
-  margin-top: 20px;
+footer{
+text-align:center;
+font-size:10px;
+opacity:.25;
+margin-top:20px;
 }
 
-@media (max-width: 400px) {
-  h1 { font-size: 18px; }
-}
 </style>
 </head>
 
 <body>
 
-<!-- 🍎 LOADER -->
 <div class="loader">
-  <div class="loader-dot"></div>
+<div class="loader-dot"></div>
 </div>
 
 <div class="card">
-  <div class="avatar"></div>
 
-  <div class="name">
-    <h1>artxikd</h1>
-    <i class="fa-solid fa-circle-check check"></i>
-  </div>
+<div class="avatar"></div>
 
-  <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
+<div class="name">
+<h1>artxikd</h1>
+<i class="fa-solid fa-circle-check check"></i>
+</div>
 
-  <div class="links">
-    <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
-      <i class="fa-brands fa-instagram"></i> Instagram
-    </a>
+<div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
 
-    <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
-      <i class="fa-brands fa-telegram"></i> Telegram
-    </a>
+<div class="links">
 
-    <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
-      <i class="fa-brands fa-tiktok"></i> TikTok
-    </a>
+<a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
+<i class="fa-solid fa-user"></i> ИТД
+</a>
 
-    <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
-      <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
-    </a>
+<a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
 
-    <a class="glass-btn bump" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
-      <i class="fa-solid fa-user-plus"></i> Add on Bump
-    </a>
-  </div>
+<a class="glass-btn" href="https://t.me/artxikd" target="_blank">
+<i class="fa-brands fa-telegram"></i> Telegram
+</a>
 
-  <footer>nothing personal</footer>
+<a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+<i class="fa-brands fa-tiktok"></i> TikTok
+</a>
+
+<a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
+<i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
+</a>
+
+<a class="glass-btn bump" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+<i class="fa-solid fa-user-plus"></i> Add on Bump
+</a>
+
+</div>
+
+<footer>nothing personal</footer>
+
 </div>
 
 </body>
