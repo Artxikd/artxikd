@@ -203,10 +203,20 @@ footer{
 
 <script>
 // Убираем loader после полной загрузки страницы
-window.addEventListener('load', ()=>{
-  const loader = document.querySelector('.loader');
-  loader.style.transition = 'opacity 0.5s ease';
-  loader.style.opacity = 0;
-  setTimeout(()=> loader.style.display = 'none', 500);
-});
-</script
+const loader = document.querySelector('.loader');
+
+function hideLoader(){
+    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.opacity = 0;
+    setTimeout(()=> loader.style.display = 'none', 500);
+}
+
+// Основное событие загрузки
+window.addEventListener('load', hideLoader);
+
+// Фолбэк на случай, если load зависнет
+setTimeout(hideLoader, 2000); // через 2 секунды скрываем loader в любом случае
+</script>
+
+</body>
+</html>
