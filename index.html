@@ -6,7 +6,7 @@
 <title>artxikd</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -25,7 +25,7 @@ align-items:center;
 background:#0b0b0d;
 color:#e5e5e5;
 overflow-x:hidden;
-overflow-y:auto;
+-webkit-font-smoothing:antialiased;
 }
 
 /* loader */
@@ -45,13 +45,13 @@ width:8px;
 height:8px;
 border-radius:50%;
 background:#3b82f6;
-box-shadow:0 0 12px rgba(59,130,246,0.6);
-animation:pulse 1.4s infinite;
+box-shadow:0 0 10px rgba(59,130,246,.6);
+animation:pulse 1.3s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);opacity:.6;}
-50%{transform:scale(1.8);opacity:1;}
+50%{transform:scale(1.7);opacity:1;}
 100%{transform:scale(1);opacity:.6;}
 }
 
@@ -60,24 +60,31 @@ animation:pulse 1.4s infinite;
 .card{
 width:90%;
 max-width:340px;
-padding:20px;
+padding:22px;
+animation:fadeCard .6s ease forwards;
+transform:translateY(15px);
 opacity:0;
-transform:translateY(20px);
-animation:fadeInCard 1s ease forwards .5s;
 }
 
-@keyframes fadeInCard{
-to{opacity:1;transform:translateY(0);}
+@keyframes fadeCard{
+to{
+opacity:1;
+transform:translateY(0);
 }
+}
+
+/* avatar */
 
 .avatar{
-width:80px;
-height:80px;
+width:82px;
+height:82px;
 border-radius:50%;
 margin:0 auto 12px;
 background:url("avatar.jpg") center/cover no-repeat;
 filter:grayscale(100%);
 }
+
+/* name */
 
 .name{
 display:flex;
@@ -96,6 +103,8 @@ color:#3b82f6;
 font-size:14px;
 }
 
+/* description */
+
 .desc{
 text-align:center;
 font-size:12px;
@@ -112,23 +121,44 @@ flex-direction:column;
 gap:10px;
 }
 
+/* improved ios glass */
+
 .glass-btn{
+
 display:flex;
 align-items:center;
 gap:10px;
+
 padding:12px 16px;
+
 border-radius:16px;
+
 text-decoration:none;
 color:#e5e5e5;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(12px);
-transition:.2s;
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.14);
+
+backdrop-filter:blur(18px) saturate(160%);
+-webkit-backdrop-filter:blur(18px) saturate(160%);
+
+box-shadow:
+0 8px 24px rgba(0,0,0,.35),
+inset 0 1px rgba(255,255,255,.15);
+
+transition:transform .18s ease, background .2s ease;
+
 font-size:14px;
+
+transform:translateZ(0);
+will-change:transform;
+
 opacity:0;
-transform:translateY(20px);
-animation:slideIn .6s forwards;
+animation:slide .45s forwards;
 }
+
+/* button icons */
 
 .glass-btn img{
 width:22px;
@@ -136,22 +166,27 @@ height:22px;
 }
 
 .glass-btn:hover{
-background:rgba(255,255,255,.12);
+background:rgba(255,255,255,.1);
 }
 
 .glass-btn:active{
 transform:scale(.97);
 }
 
-@keyframes slideIn{
-to{opacity:1;transform:translateY(0);}
+/* appear animation */
+
+@keyframes slide{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
-/* darker text for ITD */
+/* itd darker text */
 
 .itd-sub{
 font-size:12px;
-opacity:.6;
+opacity:.55;
 }
 
 /* footer */
@@ -185,31 +220,32 @@ margin-top:10px;
 
 <div class="section">
 
-<a class="glass-btn" style="animation-delay:1.8s" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
+<a class="glass-btn" style="animation-delay:.15s" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
 <i class="fa-brands fa-instagram"></i> Instagram
 </a>
 
-<a class="glass-btn" style="animation-delay:2s" href="https://t.me/artxikd" target="_blank">
+<a class="glass-btn" style="animation-delay:.25s" href="https://t.me/artxikd" target="_blank">
 <i class="fa-brands fa-telegram"></i> Telegram
 </a>
 
-<a class="glass-btn" style="animation-delay:2.2s" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+<a class="glass-btn" style="animation-delay:.35s" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
 <i class="fa-brands fa-tiktok"></i> TikTok
 </a>
 
-<a class="glass-btn" style="animation-delay:2.35s" href="https://soundcloud.com/твоя_страница" target="_blank">
+<a class="glass-btn" style="animation-delay:.45s" href="#">
 <img src="soundcloud-logo.png"> SoundCloud
 </a>
 
-<a class="glass-btn" style="animation-delay:2.45s" href="https://итд.com/artxikd" target="_blank">
-<img src="itd-logo.png"> <span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
+<a class="glass-btn" style="animation-delay:.55s" href="https://итд.com/artxikd" target="_blank">
+<img src="itd-logo.png">
+<span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
 </a>
 
-<a class="glass-btn" style="animation-delay:2.55s" href="https://t.me/artxikddd" target="_blank">
+<a class="glass-btn" style="animation-delay:.65s" href="https://t.me/artxikddd" target="_blank">
 <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
 </a>
 
-<a class="glass-btn" style="animation-delay:2.65s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+<a class="glass-btn" style="animation-delay:.75s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
 <i class="fa-solid fa-user-plus"></i> Add on Bump
 </a>
 
@@ -225,11 +261,11 @@ const loader=document.querySelector('.loader');
 
 function hideLoader(){
 loader.style.opacity=0;
-setTimeout(()=>loader.style.display='none',500);
+setTimeout(()=>loader.style.display='none',400);
 }
 
 window.addEventListener('load',hideLoader);
-setTimeout(hideLoader,2000);
+setTimeout(hideLoader,1500);
 
 </script>
 
