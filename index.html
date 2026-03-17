@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,17 +22,6 @@ body{
   overflow-x:hidden;
   overflow-y:auto;
   -webkit-overflow-scrolling: touch;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events:none;
-  z-index:1;
-  transform: translate3d(0,0,0);
-  transition: transform 0.1s linear;
 }
 
 /* Loader */
@@ -111,17 +101,7 @@ h1{ font-size:18px; font-weight:500; }
 }
 @keyframes fadeInDesc{ to{opacity:.55;} }
 
-/* Sections */
-.section-title{
-  font-size:12px;
-  color:rgba(255,255,255,0.4);
-  margin-bottom:6px;
-  letter-spacing:1px;
-  opacity:0;
-  animation:fadeInTitle 1s ease forwards 1.5s;
-}
-@keyframes fadeInTitle{ to{opacity:1;} }
-
+/* Sections (панели с кнопками) */
 .section{
   background: rgba(255,255,255,.08);
   border-radius: 20px;
@@ -212,8 +192,7 @@ footer{
 
 <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
 
-<!-- Section 1: Соцсети -->
-<div class="section-title">Мои соцсети</div>
+<!-- Социальные сети и приложения -->
 <div class="section">
   <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
     <i class="fa-brands fa-instagram"></i> Instagram
@@ -228,11 +207,6 @@ footer{
     <img src="itd-logo.png" alt="ITD">
     <div><span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
   </a>
-</div>
-
-<!-- Section 2: Приложения -->
-<div class="section-title">Мои приложения</div>
-<div class="section">
   <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
     <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
   </a>
@@ -244,14 +218,6 @@ footer{
 <footer>nothing personal</footer>
 
 <script>
-// Parallax движения фона
-document.addEventListener("mousemove", e=>{
-  const x = (e.clientX / window.innerWidth - 0.5) * 10;
-  const y = (e.clientY / window.innerHeight - 0.5) * 10;
-  document.body.style.setProperty('--bg-x', `${x}px`);
-  document.body.style.setProperty('--bg-y', `${y}px`);
-});
-
 // Убираем loader после полной загрузки страницы
 window.addEventListener('load', ()=>{
   const loader = document.querySelector('.loader');
