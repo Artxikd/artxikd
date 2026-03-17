@@ -9,7 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
 body{
 min-height:100vh;
@@ -22,7 +28,8 @@ overflow-x:hidden;
 overflow-y:auto;
 }
 
-/* Loader */
+/* loader */
+
 .loader{
 position:fixed;
 inset:0;
@@ -48,18 +55,19 @@ animation:pulse 1.4s infinite;
 100%{transform:scale(1);opacity:.6;}
 }
 
-/* Card */
+/* card */
+
 .card{
 width:90%;
 max-width:340px;
 padding:20px;
 opacity:0;
 transform:translateY(20px);
-animation:fadeInCard 1s ease forwards 0.5s;
+animation:fadeInCard 1s ease forwards .5s;
 }
 
 @keyframes fadeInCard{
-to{opacity:1; transform:translateY(0);}
+to{opacity:1;transform:translateY(0);}
 }
 
 .avatar{
@@ -96,7 +104,7 @@ margin:6px 0 18px;
 letter-spacing:1px;
 }
 
-/* Buttons */
+/* buttons */
 
 .section{
 display:flex;
@@ -136,8 +144,17 @@ transform:scale(.97);
 }
 
 @keyframes slideIn{
-to{opacity:1; transform:translateY(0);}
+to{opacity:1;transform:translateY(0);}
 }
+
+/* darker text for ITD */
+
+.itd-sub{
+font-size:12px;
+opacity:.6;
+}
+
+/* footer */
 
 footer{
 text-align:center;
@@ -145,6 +162,7 @@ font-size:10px;
 opacity:.25;
 margin-top:10px;
 }
+
 </style>
 </head>
 
@@ -183,15 +201,15 @@ margin-top:10px;
 <img src="soundcloud-logo.png"> SoundCloud
 </a>
 
-<a class="glass-btn" style="animation-delay:2.4s" href="https://итд.com/artxikd" target="_blank">
-<img src="itd-logo.png"> (мой ник в ИТД — @artxikd)
+<a class="glass-btn" style="animation-delay:2.45s" href="https://итд.com/artxikd" target="_blank">
+<img src="itd-logo.png"> <span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
 </a>
 
-<a class="glass-btn" style="animation-delay:2.6s" href="https://t.me/artxikddd" target="_blank">
+<a class="glass-btn" style="animation-delay:2.55s" href="https://t.me/artxikddd" target="_blank">
 <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
 </a>
 
-<a class="glass-btn" style="animation-delay:2.8s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+<a class="glass-btn" style="animation-delay:2.65s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
 <i class="fa-solid fa-user-plus"></i> Add on Bump
 </a>
 
