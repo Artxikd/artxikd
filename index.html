@@ -46,11 +46,8 @@ body::after{
   display:flex;
   justify-content:center;
   align-items:center;
-  animation:fadeLoader 1s ease forwards;
-  animation-delay:2s;
   z-index:9999;
 }
-
 .loader-dot{
   width:8px;
   height:8px;
@@ -64,9 +61,6 @@ body::after{
   50%{transform:scale(1.8);opacity:1;}
   100%{transform:scale(1);opacity:.6;}
 }
-@keyframes fadeLoader{
-  to{opacity:0;visibility:hidden;}
-}
 
 /* Card */
 .card{
@@ -77,13 +71,13 @@ body::after{
   border-radius:20px;
   padding:26px 20px;
   box-shadow:0 0 60px rgba(0,0,0,.6);
-  animation:fadeIn 1.2s ease;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInCard 1s ease forwards 0.5s;
   z-index:2;
 }
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(14px);}
-  to{opacity:1;transform:translateY(0);}
+@keyframes fadeInCard{
+  to{opacity:1; transform:translateY(0);}
 }
 
 .avatar{
@@ -93,6 +87,12 @@ body::after{
   margin:0 auto 14px;
   background:url("avatar.jpg") center/cover no-repeat;
   filter:grayscale(100%);
+  opacity:0;
+  transform:translateY(-10px);
+  animation:fadeInAvatar 1s ease forwards 0.8s;
+}
+@keyframes fadeInAvatar{
+  to{opacity:1; transform:translateY(0);}
 }
 
 .name{
@@ -100,18 +100,18 @@ body::after{
   justify-content:center;
   align-items:center;
   gap:6px;
+  opacity:0;
+  animation:fadeInName 1s ease forwards 1.2s;
 }
+@keyframes fadeInName{ to{opacity:1;} }
 
-h1{
-  font-size:20px;
-  font-weight:500;
-}
+h1{ font-size:20px; font-weight:500; }
 
 .check{
   color:#3b82f6;
   font-size:14px;
   opacity:0;
-  animation:checkIn 1s ease forwards 2.6s;
+  animation:checkIn 1s ease forwards 1.6s;
 }
 @keyframes checkIn{ to{opacity:1;} }
 
@@ -121,14 +121,16 @@ h1{
   opacity:.55;
   margin:6px 0 22px;
   letter-spacing:1px;
+  animation:fadeInDesc 1s ease forwards 1.4s;
+  opacity:0;
 }
+@keyframes fadeInDesc{ to{opacity:.55;} }
 
 .links{
   display:flex;
   flex-direction:column;
   gap:12px;
 }
-
 .glass-btn{
   display:flex;
   align-items:center;
@@ -140,29 +142,34 @@ h1{
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.15);
   backdrop-filter:blur(12px);
-  transition:.2s;
+  transform:translateY(10px);
+  opacity:0;
+  animation:fadeInBtn 0.8s ease forwards;
 }
+.glass-btn:active{ transform:scale(.97); }
+.glass-btn img{ display:block; width:24px; height:24px; }
 
-.glass-btn:active{
-  transform:scale(.97);
-}
+/* sequential fade for buttons */
+.links a:nth-child(1){ animation-delay:1.6s; }
+.links a:nth-child(2){ animation-delay:1.8s; }
+.links a:nth-child(3){ animation-delay:2s; }
+.links a:nth-child(4){ animation-delay:2.2s; }
+.links a:nth-child(5){ animation-delay:2.4s; }
+.links a:nth-child(6){ animation-delay:2.6s; }
 
-.glass-btn img{
-  display:block;
-  width:24px;
-  height:24px;
-}
+@keyframes fadeInBtn{ to{opacity:1; transform:translateY(0);} }
 
-.glass-btn.bump{
-  box-shadow:0 0 18px rgba(59,130,246,.25);
-}
+.glass-btn.bump{ box-shadow:0 0 18px rgba(59,130,246,.25); }
 
 footer{
   text-align:center;
   font-size:10px;
   opacity:.25;
   margin-top:20px;
+  animation:fadeInFooter 1s ease forwards 2.8s;
+  opacity:0;
 }
+@keyframes fadeInFooter{ to{opacity:.25;} }
 
 </style>
 </head>
@@ -198,10 +205,10 @@ footer{
     <i class="fa-brands fa-tiktok"></i> TikTok
   </a>
 
-  <!-- ITD с локальным логотипом -->
+  <!-- ITD с логотипом и только ник -->
   <a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
     <img src="itd-logo.png" alt="ITD">
-    <div>ИТД <span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
+    <div><span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
   </a>
 
   <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
