@@ -102,24 +102,12 @@ h1{ font-size:18px; font-weight:500; }
 
 /* Sections (панели с кнопками) */
 .section{
-  background: rgba(255,255,255,.08);
-  border-radius: 20px;
-  padding: 10px;
-  backdrop-filter: blur(14px);
-  margin-bottom: 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transform:translateY(10px);
-  opacity:0;
-  animation:fadeInSection 0.8s ease forwards;
-  position:relative;
-  overflow:hidden;
 }
-.section:nth-child(1){ animation-delay:1.6s; }
-.section:nth-child(2){ animation-delay:2.4s; }
-@keyframes fadeInSection{ to{opacity:1; transform:translateY(0);} }
 
+/* Glass buttons with slide-in */
 .glass-btn{
   display:flex;
   align-items:center;
@@ -133,10 +121,17 @@ h1{ font-size:18px; font-weight:500; }
   backdrop-filter:blur(12px);
   transition:.2s;
   font-size:14px;
+  opacity:0;
+  transform:translateY(20px);
+  animation:slideIn 0.6s forwards;
 }
 .glass-btn:active{ transform:scale(.97); }
 .glass-btn:hover{ background: rgba(255,255,255,0.12); box-shadow:0 0 18px rgba(59,130,246,.3);}
 .glass-btn img{ display:block; width:22px; height:22px; }
+
+@keyframes slideIn{
+  to{opacity:1; transform:translateY(0);}
+}
 
 footer{
   text-align:center;
@@ -154,7 +149,6 @@ footer{
   .avatar{width:70px; height:70px;}
   h1{font-size:17px;}
   .glass-btn{padding:10px 14px; font-size:13px; gap:8px;}
-  .section{padding:8px;}
   .desc{font-size:11px;margin-bottom:14px;}
 }
 </style>
@@ -179,23 +173,23 @@ footer{
 
 <!-- Все кнопки вместе -->
 <div class="section">
-  <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
+  <a class="glass-btn" style="animation-delay:1.8s" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
     <i class="fa-brands fa-instagram"></i> Instagram
   </a>
-  <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
+  <a class="glass-btn" style="animation-delay:2.0s" href="https://t.me/artxikd" target="_blank">
     <i class="fa-brands fa-telegram"></i> Telegram
   </a>
-  <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+  <a class="glass-btn" style="animation-delay:2.2s" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
     <i class="fa-brands fa-tiktok"></i> TikTok
   </a>
-  <a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
+  <a class="glass-btn" style="animation-delay:2.4s" href="https://итд.com/artxikd" target="_blank">
     <img src="itd-logo.png" alt="ITD">
     <div><span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
   </a>
-  <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
+  <a class="glass-btn" style="animation-delay:2.6s" href="https://t.me/artxikddd" target="_blank">
     <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
   </a>
-  <a class="glass-btn bump" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+  <a class="glass-btn bump" style="animation-delay:2.8s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
     <i class="fa-solid fa-user-plus"></i> Add on Bump
   </a>
 </div>
