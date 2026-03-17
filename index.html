@@ -38,6 +38,7 @@ body::after{
   z-index:1;
 }
 
+/* Loader iOS style */
 .loader{
   position:fixed;
   inset:0;
@@ -67,6 +68,7 @@ body::after{
   to{opacity:0;visibility:hidden;}
 }
 
+/* Card */
 .card{
   width:100%;
   max-width:340px;
@@ -145,6 +147,12 @@ h1{
   transform:scale(.97);
 }
 
+.glass-btn img{
+  display:block;
+  width:24px;
+  height:24px;
+}
+
 .glass-btn.bump{
   box-shadow:0 0 18px rgba(59,130,246,.25);
 }
@@ -190,11 +198,9 @@ footer{
     <i class="fa-brands fa-tiktok"></i> TikTok
   </a>
 
-  <!-- ITD with true logo icon -->
+  <!-- ITD с локальным логотипом -->
   <a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
-    <svg width="24" height="24" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 10h40v180H10zM70 10h40v180H70zM130 10h40v180h-40z"/>
-    </svg>
+    <img src="itd-logo.png" alt="ITD">
     <div>ИТД <span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
   </a>
 
