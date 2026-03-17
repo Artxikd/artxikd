@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -22,14 +21,13 @@ min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#0b0b0d;
+background: linear-gradient(135deg, #0b0b0d 0%, #1a1a23 100%);
 color:#e5e5e5;
 overflow-x:hidden;
 -webkit-font-smoothing:antialiased;
 }
 
 /* loader */
-
 .loader{
 position:fixed;
 inset:0;
@@ -39,7 +37,6 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 }
-
 .loader-dot{
 width:8px;
 height:8px;
@@ -48,7 +45,6 @@ background:#3b82f6;
 box-shadow:0 0 10px rgba(59,130,246,.6);
 animation:pulse 1.2s infinite;
 }
-
 @keyframes pulse{
 0%{transform:scale(1);opacity:.6;}
 50%{transform:scale(1.6);opacity:1;}
@@ -56,7 +52,6 @@ animation:pulse 1.2s infinite;
 }
 
 /* card */
-
 .card{
 width:90%;
 max-width:340px;
@@ -64,17 +59,14 @@ padding:22px;
 animation:fadeCard .6s ease forwards;
 opacity:0;
 transform:translateY(10px);
-}
-
-@keyframes fadeCard{
-to{
-opacity:1;
-transform:translateY(0);
-}
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+background: rgba(255,255,255,0.05);
+border-radius:20px;
+box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 /* avatar */
-
 .avatar{
 width:82px;
 height:82px;
@@ -85,26 +77,22 @@ filter:grayscale(100%);
 }
 
 /* name */
-
 .name{
 display:flex;
 justify-content:center;
 align-items:center;
 gap:6px;
 }
-
 h1{
 font-size:18px;
 font-weight:500;
 }
-
 .check{
 color:#3b82f6;
 font-size:14px;
 }
 
 /* description */
-
 .desc{
 text-align:center;
 font-size:12px;
@@ -114,50 +102,30 @@ letter-spacing:1px;
 }
 
 /* buttons */
-
 .section{
 display:flex;
 flex-direction:column;
 gap:10px;
 }
 
-/* glass buttons */
-
+/* liquid glass buttons */
 .glass-btn{
-
 display:flex;
 align-items:center;
 gap:10px;
-
 padding:12px 16px;
-
 border-radius:16px;
-
 text-decoration:none;
 color:#e5e5e5;
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.03)
-);
-
-border:1px solid rgba(255,255,255,.12);
-
-box-shadow:
-0 6px 20px rgba(0,0,0,.35),
-inset 0 1px rgba(255,255,255,.12);
-
-transition:
-transform .15s ease,
-background .2s ease;
-
+background: rgba(255,255,255,0.07);
+border:1px solid rgba(255,255,255,0.14);
+backdrop-filter: blur(18px) saturate(160%);
+-webkit-backdrop-filter: blur(18px) saturate(160%);
+box-shadow: 0 6px 20px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.12);
+transition: transform .18s ease, background .2s ease;
 font-size:14px;
-
 transform:translateZ(0);
 will-change:transform;
-
 opacity:0;
 animation:slide 0.8s cubic-bezier(.22,1,.36,1) forwards;
 }
@@ -168,41 +136,25 @@ height:22px;
 }
 
 .glass-btn:hover{
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.12),
-rgba(255,255,255,.05)
-);
+background: rgba(255,255,255,0.12);
 }
 
 .glass-btn:active{
 transform:scale(.97);
 }
 
-/* smoother animation */
-
 @keyframes slide{
-0%{
-opacity:0;
-transform:translateY(18px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
+0%{opacity:0; transform:translateY(18px);}
+100%{opacity:1; transform:translateY(0);}
 }
 
 /* itd text */
-
 .itd-sub{
 font-size:12px;
 opacity:.55;
 }
 
 /* footer */
-
 footer{
 text-align:center;
 font-size:10px;
@@ -212,7 +164,6 @@ margin-top:10px;
 
 </style>
 </head>
-
 <body>
 
 <div class="loader">
@@ -268,17 +219,13 @@ margin-top:10px;
 </div>
 
 <script>
-
 const loader=document.querySelector('.loader');
-
 function hideLoader(){
 loader.style.opacity=0;
 setTimeout(()=>loader.style.display='none',400);
 }
-
 window.addEventListener('load',hideLoader);
 setTimeout(hideLoader,1400);
-
 </script>
 
 </body>
