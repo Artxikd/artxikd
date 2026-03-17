@@ -9,12 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
   min-height:100vh;
@@ -66,19 +61,13 @@ body::after{
 .card{
   width:100%;
   max-width:340px;
-  background:rgba(20,20,24,.85);
-  backdrop-filter:blur(14px);
-  border-radius:20px;
   padding:26px 20px;
-  box-shadow:0 0 60px rgba(0,0,0,.6);
+  z-index:2;
   opacity:0;
   transform:translateY(20px);
   animation:fadeInCard 1s ease forwards 0.5s;
-  z-index:2;
 }
-@keyframes fadeInCard{
-  to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeInCard{ to{opacity:1; transform:translateY(0);} }
 
 .avatar{
   width:90px;
@@ -91,9 +80,7 @@ body::after{
   transform:translateY(-10px);
   animation:fadeInAvatar 1s ease forwards 0.8s;
 }
-@keyframes fadeInAvatar{
-  to{opacity:1; transform:translateY(0);}
-}
+@keyframes fadeInAvatar{ to{opacity:1; transform:translateY(0);} }
 
 .name{
   display:flex;
@@ -126,11 +113,34 @@ h1{ font-size:20px; font-weight:500; }
 }
 @keyframes fadeInDesc{ to{opacity:.55;} }
 
-.links{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+/* Sections (Glass Panels) */
+.section-title{
+  font-size:12px;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:6px;
+  letter-spacing:1px;
+  opacity:0;
+  animation:fadeInTitle 1s ease forwards 1.5s;
 }
+@keyframes fadeInTitle{ to{opacity:1;} }
+
+.section{
+  background: rgba(255,255,255,.08);
+  border-radius: 20px;
+  padding: 12px;
+  backdrop-filter: blur(14px);
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform:translateY(10px);
+  opacity:0;
+  animation:fadeInSection 0.8s ease forwards;
+}
+.section:nth-child(1){ animation-delay:1.6s; }
+.section:nth-child(2){ animation-delay:2.4s; }
+@keyframes fadeInSection{ to{opacity:1; transform:translateY(0);} }
+
 .glass-btn{
   display:flex;
   align-items:center;
@@ -142,31 +152,18 @@ h1{ font-size:20px; font-weight:500; }
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.15);
   backdrop-filter:blur(12px);
-  transform:translateY(10px);
-  opacity:0;
-  animation:fadeInBtn 0.8s ease forwards;
+  transition:.2s;
 }
 .glass-btn:active{ transform:scale(.97); }
+.glass-btn:hover{ background: rgba(255,255,255,0.12); box-shadow:0 0 18px rgba(59,130,246,.3);}
 .glass-btn img{ display:block; width:24px; height:24px; }
-
-/* sequential fade for buttons */
-.links a:nth-child(1){ animation-delay:1.6s; }
-.links a:nth-child(2){ animation-delay:1.8s; }
-.links a:nth-child(3){ animation-delay:2s; }
-.links a:nth-child(4){ animation-delay:2.2s; }
-.links a:nth-child(5){ animation-delay:2.4s; }
-.links a:nth-child(6){ animation-delay:2.6s; }
-
-@keyframes fadeInBtn{ to{opacity:1; transform:translateY(0);} }
-
-.glass-btn.bump{ box-shadow:0 0 18px rgba(59,130,246,.25); }
 
 footer{
   text-align:center;
   font-size:10px;
   opacity:.25;
-  margin-top:20px;
-  animation:fadeInFooter 1s ease forwards 2.8s;
+  margin-top:10px;
+  animation:fadeInFooter 1s ease forwards 3.2s;
   opacity:0;
 }
 @keyframes fadeInFooter{ to{opacity:.25;} }
@@ -191,34 +188,33 @@ footer{
 
 <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
 
-<div class="links">
-
+<!-- Section 1: Соцсети -->
+<div class="section-title">Мои соцсети</div>
+<div class="section">
   <a class="glass-btn" href="https://www.instagram.com/_artxikd_?igsh=NHUxazkzMmluZmVu" target="_blank">
     <i class="fa-brands fa-instagram"></i> Instagram
   </a>
-
   <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
     <i class="fa-brands fa-telegram"></i> Telegram
   </a>
-
   <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
     <i class="fa-brands fa-tiktok"></i> TikTok
   </a>
-
-  <!-- ITD с логотипом и только ник -->
   <a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
     <img src="itd-logo.png" alt="ITD">
     <div><span style="font-size:12px;opacity:.6;">(мой ник в ИТД — @artxikd)</span></div>
   </a>
+</div>
 
+<!-- Section 2: Приложения -->
+<div class="section-title">Мои приложения</div>
+<div class="section">
   <a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
     <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
   </a>
-
   <a class="glass-btn bump" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
     <i class="fa-solid fa-user-plus"></i> Add on Bump
   </a>
-
 </div>
 
 <footer>nothing personal</footer>
