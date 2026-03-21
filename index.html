@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
@@ -16,109 +17,83 @@ min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background: linear-gradient(135deg,#0b0b0d,#1a1a23);
-color:#fff;
+background:#0b0b0d;
+color:#e5e5e5;
 overflow:hidden;
 }
 
-/* particles */
+/* 🌌 PARTICLES BACKGROUND */
 .particles{
 position:fixed;
-inset:0;
-z-index:0;
+width:100%;
+height:100%;
 overflow:hidden;
+z-index:0;
 }
 
-.particle{
+.particles span{
 position:absolute;
 width:3px;
 height:3px;
-background:rgba(255,255,255,0.4);
+background:rgba(255,255,255,0.25);
 border-radius:50%;
-animation:float linear infinite;
+animation:move linear infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-10vh);}
+@keyframes move{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
 }
 
-/* loader */
-.loader{
-position:fixed;
-inset:0;
-background:#0b0b0d;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-.loader-dot{
-width:8px;height:8px;border-radius:50%;
-background:#3b82f6;
-animation:pulse 1.2s infinite;
-}
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.5);}
-100%{transform:scale(1);}
-}
-
-/* card */
+/* CARD */
 .card{
 position:relative;
 z-index:2;
-
 width:90%;
 max-width:340px;
 padding:22px;
-
-border-radius:24px;
-background:rgba(255,255,255,0.05);
-
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-
-box-shadow:0 15px 40px rgba(0,0,0,0.5);
-overflow:hidden; /* 🔥 фикс выхода стекла */
+border-radius:22px;
+background: rgba(255,255,255,0.04);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 /* avatar */
 .avatar{
-width:82px;height:82px;
-border-radius:50%;
+width:82px;height:82px;border-radius:50%;
 margin:0 auto 12px;
 background:url("avatar.jpg") center/cover no-repeat;
 filter:grayscale(100%);
 }
 
 /* name */
-.name{display:flex;justify-content:center;gap:6px;}
-.check{color:#3b82f6;}
+.name{
+display:flex;justify-content:center;align-items:center;gap:6px;
+}
+h1{font-size:18px;font-weight:500;}
+.check{color:#3b82f6;font-size:14px;}
 
 /* desc */
-.desc{text-align:center;font-size:12px;opacity:.6;margin:8px 0 18px;}
+.desc{text-align:center;font-size:12px;opacity:.55;margin:6px 0 18px;}
 
 /* buttons */
 .section{display:flex;flex-direction:column;gap:12px;}
 
-/* glass button */
+/* 🔥 GLASS BUTTON */
 .glass-btn{
 position:relative;
 display:flex;
 align-items:center;
 gap:10px;
-
 padding:14px 18px;
 border-radius:22px;
-
-color:#fff;
 text-decoration:none;
+color:#fff;
 
-background:rgba(255,255,255,0.08);
-
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
 
 border:1.5px solid rgba(255,255,255,0.35);
 
@@ -127,40 +102,35 @@ box-shadow:
 inset 0 1px 1px rgba(255,255,255,0.35),
 inset 0 -2px 6px rgba(0,0,0,0.3);
 
-transition:.25s;
-overflow:hidden; /* 🔥 чтобы блики не выходили */
+overflow:hidden;
+
+transition:.25s cubic-bezier(.22,1,.36,1);
 }
 
 /* shine */
 .glass-btn::before{
 content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:50%;
-background:linear-gradient(to bottom,rgba(255,255,255,.35),transparent);
+top:0;left:0;
+width:100%;height:50%;
+border-radius:22px;
+background:linear-gradient(to bottom, rgba(255,255,255,.35), transparent);
 }
 
-/* glow */
-.glass-btn::after{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at top left,rgba(255,255,255,.25),transparent);
+/* hover */
+.glass-btn:hover{
+background: rgba(255,255,255,0.14);
 }
 
-/* click */
 .glass-btn:active{
 transform:scale(.96);
 }
 
 .glass-btn img{
-width:22px;
-height:22px;
+width:22px;height:22px;
 }
 
-/* itd text */
+/* itd */
 .itd-sub{
 font-size:12px;
 opacity:.6;
@@ -170,7 +140,7 @@ opacity:.6;
 footer{
 text-align:center;
 font-size:10px;
-opacity:.3;
+opacity:.25;
 margin-top:10px;
 }
 
@@ -179,9 +149,18 @@ margin-top:10px;
 
 <body>
 
-<div class="particles" id="particles"></div>
-
-<div class="loader"><div class="loader-dot"></div></div>
+<!-- 🌌 particles -->
+<div class="particles">
+<script>
+for(let i=0;i<40;i++){
+let p=document.createElement("span");
+p.style.left=Math.random()*100+"%";
+p.style.animationDuration=(5+Math.random()*10)+"s";
+p.style.opacity=Math.random();
+document.querySelector(".particles").appendChild(p);
+}
+</script>
+</div>
 
 <div class="card">
 
@@ -196,17 +175,33 @@ margin-top:10px;
 
 <div class="section">
 
-<a class="glass-btn" href="https://www.instagram.com/_artxikd_"><i class="fa-brands fa-instagram"></i> Instagram</a>
+<a class="glass-btn" href="https://www.instagram.com/_artxikd_" target="_blank">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
 
-<a class="glass-btn" href="https://t.me/artxikd"><i class="fa-brands fa-telegram"></i> Telegram</a>
+<a class="glass-btn" href="https://t.me/artxikd" target="_blank">
+<i class="fa-brands fa-telegram"></i> Telegram
+</a>
 
-<a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+<a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
+<i class="fa-brands fa-tiktok"></i> TikTok
+</a>
 
-<a class="glass-btn" href="https://on.soundcloud.com/gOr3fIGj24F6OPVqpZ"><img src="soundcloud-logo.png"> SoundCloud</a>
+<a class="glass-btn" href="https://on.soundcloud.com/gOr3fIGj24F6OPVqpZ" target="_blank">
+<img src="soundcloud-logo.png"> SoundCloud
+</a>
 
-<a class="glass-btn" href="https://итд.com/artxikd">
+<a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
 <img src="itd-logo.png">
 <span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
+</a>
+
+<a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
+<i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
+</a>
+
+<a class="glass-btn" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
+<i class="fa-solid fa-user-plus"></i> Add on Bump
 </a>
 
 </div>
@@ -214,28 +209,6 @@ margin-top:10px;
 <footer>nothing personal</footer>
 
 </div>
-
-<script>
-
-/* loader */
-const loader=document.querySelector('.loader');
-window.onload=()=>setTimeout(()=>loader.style.display='none',500);
-
-/* particles */
-const container=document.getElementById("particles");
-
-for(let i=0;i<40;i++){
-let p=document.createElement("div");
-p.className="particle";
-
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(5+Math.random()*5)+"s";
-p.style.opacity=Math.random();
-
-container.appendChild(p);
-}
-
-</script>
 
 </body>
 </html>
