@@ -9,21 +9,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background: linear-gradient(135deg, #0b0b0d 0%, #1a1a23 100%);
-color:#e5e5e5;
-overflow-x:hidden;
+background: linear-gradient(135deg,#0b0b0d,#1a1a23);
+color:#fff;
+overflow:hidden;
+}
+
+/* particles */
+.particles{
+position:fixed;
+inset:0;
+z-index:0;
+overflow:hidden;
+}
+
+.particle{
+position:absolute;
+width:3px;
+height:3px;
+background:rgba(255,255,255,0.4);
+border-radius:50%;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
 }
 
 /* loader */
@@ -34,43 +51,41 @@ background:#0b0b0d;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:9999;
+z-index:999;
 }
 .loader-dot{
-width:8px;
-height:8px;
-border-radius:50%;
+width:8px;height:8px;border-radius:50%;
 background:#3b82f6;
-box-shadow:0 0 10px rgba(59,130,246,.6);
 animation:pulse 1.2s infinite;
 }
 @keyframes pulse{
-0%{transform:scale(1);opacity:.6;}
-50%{transform:scale(1.6);opacity:1;}
-100%{transform:scale(1);opacity:.6;}
+0%{transform:scale(1);}
+50%{transform:scale(1.5);}
+100%{transform:scale(1);}
 }
 
 /* card */
 .card{
+position:relative;
+z-index:2;
+
 width:90%;
 max-width:340px;
 padding:22px;
-border-radius:22px;
-background: rgba(255,255,255,0.04);
-box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-animation:fadeCard .6s ease forwards;
-opacity:0;
-transform:translateY(10px);
-}
 
-@keyframes fadeCard{
-to{opacity:1;transform:translateY(0);}
+border-radius:24px;
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+overflow:hidden; /* 🔥 фикс выхода стекла */
 }
 
 /* avatar */
 .avatar{
-width:82px;
-height:82px;
+width:82px;height:82px;
 border-radius:50%;
 margin:0 auto 12px;
 background:url("avatar.jpg") center/cover no-repeat;
@@ -78,58 +93,42 @@ filter:grayscale(100%);
 }
 
 /* name */
-.name{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:6px;
-}
-h1{
-font-size:18px;
-font-weight:500;
-}
-.check{
-color:#3b82f6;
-font-size:14px;
-}
+.name{display:flex;justify-content:center;gap:6px;}
+.check{color:#3b82f6;}
 
 /* desc */
-.desc{
-text-align:center;
-font-size:12px;
-opacity:.55;
-margin:6px 0 18px;
-}
+.desc{text-align:center;font-size:12px;opacity:.6;margin:8px 0 18px;}
 
 /* buttons */
-.section{
-display:flex;
-flex-direction:column;
-gap:12px;
-}
+.section{display:flex;flex-direction:column;gap:12px;}
 
-/* 🔥 REAL GLASS */
+/* glass button */
 .glass-btn{
 position:relative;
 display:flex;
 align-items:center;
 gap:10px;
+
 padding:14px 18px;
 border-radius:22px;
-text-decoration:none;
+
 color:#fff;
-background: rgba(255,255,255,0.08);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
+text-decoration:none;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+
 border:1.5px solid rgba(255,255,255,0.35);
+
 box-shadow:
 0 10px 30px rgba(0,0,0,0.45),
 inset 0 1px 1px rgba(255,255,255,0.35),
 inset 0 -2px 6px rgba(0,0,0,0.3);
-transition: all .25s cubic-bezier(.22,1,.36,1);
-font-size:14px;
-opacity:0;
-animation:slide .8s cubic-bezier(.22,1,.36,1) forwards;
+
+transition:.25s;
+overflow:hidden; /* 🔥 чтобы блики не выходили */
 }
 
 /* shine */
@@ -140,25 +139,18 @@ top:0;
 left:0;
 width:100%;
 height:50%;
-border-radius:22px;
-background: linear-gradient(to bottom, rgba(255,255,255,.35), rgba(255,255,255,.05));
-opacity:.6;
+background:linear-gradient(to bottom,rgba(255,255,255,.35),transparent);
 }
 
-/* light */
+/* glow */
 .glass-btn::after{
 content:"";
 position:absolute;
 inset:0;
-border-radius:22px;
-background: radial-gradient(circle at top left, rgba(255,255,255,.25), transparent 60%);
-opacity:.4;
+background:radial-gradient(circle at top left,rgba(255,255,255,.25),transparent);
 }
 
-/* interactions */
-.glass-btn:hover{
-background: rgba(255,255,255,0.14);
-}
+/* click */
 .glass-btn:active{
 transform:scale(.96);
 }
@@ -168,13 +160,7 @@ width:22px;
 height:22px;
 }
 
-/* animation */
-@keyframes slide{
-0%{opacity:0;transform:translateY(18px);}
-100%{opacity:1;transform:translateY(0);}
-}
-
-/* itd */
+/* itd text */
 .itd-sub{
 font-size:12px;
 opacity:.6;
@@ -184,13 +170,16 @@ opacity:.6;
 footer{
 text-align:center;
 font-size:10px;
-opacity:.25;
+opacity:.3;
 margin-top:10px;
 }
+
 </style>
 </head>
 
 <body>
+
+<div class="particles" id="particles"></div>
 
 <div class="loader"><div class="loader-dot"></div></div>
 
@@ -207,33 +196,17 @@ margin-top:10px;
 
 <div class="section">
 
-<a class="glass-btn" style="animation-delay:.2s" href="https://www.instagram.com/_artxikd_" target="_blank">
-<i class="fa-brands fa-instagram"></i> Instagram
-</a>
+<a class="glass-btn" href="https://www.instagram.com/_artxikd_"><i class="fa-brands fa-instagram"></i> Instagram</a>
 
-<a class="glass-btn" style="animation-delay:.35s" href="https://t.me/artxikd" target="_blank">
-<i class="fa-brands fa-telegram"></i> Telegram
-</a>
+<a class="glass-btn" href="https://t.me/artxikd"><i class="fa-brands fa-telegram"></i> Telegram</a>
 
-<a class="glass-btn" style="animation-delay:.5s" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
-<i class="fa-brands fa-tiktok"></i> TikTok
-</a>
+<a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/"><i class="fa-brands fa-tiktok"></i> TikTok</a>
 
-<a class="glass-btn" style="animation-delay:.65s" href="https://on.soundcloud.com/gOr3fIGj24F6OPVqpZ" target="_blank">
-<img src="soundcloud-logo.png"> SoundCloud
-</a>
+<a class="glass-btn" href="https://on.soundcloud.com/gOr3fIGj24F6OPVqpZ"><img src="soundcloud-logo.png"> SoundCloud</a>
 
-<a class="glass-btn" style="animation-delay:.8s" href="https://итд.com/artxikd" target="_blank">
+<a class="glass-btn" href="https://итд.com/artxikd">
 <img src="itd-logo.png">
 <span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
-</a>
-
-<a class="glass-btn" style="animation-delay:.95s" href="https://t.me/artxikddd" target="_blank">
-<i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
-</a>
-
-<a class="glass-btn" style="animation-delay:1.1s" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
-<i class="fa-solid fa-user-plus"></i> Add on Bump
 </a>
 
 </div>
@@ -243,16 +216,26 @@ margin-top:10px;
 </div>
 
 <script>
-const loader=document.querySelector('.loader');
 
-function hideLoader(){
-loader.style.opacity=0;
-setTimeout(()=>loader.style.display='none',400);
+/* loader */
+const loader=document.querySelector('.loader');
+window.onload=()=>setTimeout(()=>loader.style.display='none',500);
+
+/* particles */
+const container=document.getElementById("particles");
+
+for(let i=0;i<40;i++){
+let p=document.createElement("div");
+p.className="particle";
+
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(5+Math.random()*5)+"s";
+p.style.opacity=Math.random();
+
+container.appendChild(p);
 }
 
-window.addEventListener('load',hideLoader);
-setTimeout(hideLoader,1400);
 </script>
 
 </body>
-  </html>
+</html>
