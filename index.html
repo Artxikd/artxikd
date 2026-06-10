@@ -4,14 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>artxikd</title>
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-
 body{
 min-height:100vh;
 display:flex;
@@ -21,7 +17,6 @@ background:#0b0b0d;
 color:#e5e5e5;
 overflow:hidden;
 }
-
 /* 🌌 PARTICLES BACKGROUND */
 .particles{
 position:fixed;
@@ -30,7 +25,6 @@ height:100%;
 overflow:hidden;
 z-index:0;
 }
-
 .particles span{
 position:absolute;
 width:3px;
@@ -39,12 +33,10 @@ background:rgba(255,255,255,0.25);
 border-radius:50%;
 animation:move linear infinite;
 }
-
 @keyframes move{
 from{transform:translateY(100vh);}
 to{transform:translateY(-10vh);}
 }
-
 /* CARD */
 .card{
 position:relative;
@@ -58,7 +50,6 @@ backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
-
 /* avatar */
 .avatar{
 width:82px;height:82px;border-radius:50%;
@@ -66,20 +57,16 @@ margin:0 auto 12px;
 background:url("avatar.jpg") center/cover no-repeat;
 filter:grayscale(100%);
 }
-
 /* name */
 .name{
 display:flex;justify-content:center;align-items:center;gap:6px;
 }
 h1{font-size:18px;font-weight:500;}
 .check{color:#3b82f6;font-size:14px;}
-
 /* desc */
 .desc{text-align:center;font-size:12px;opacity:.55;margin:6px 0 18px;}
-
 /* buttons */
 .section{display:flex;flex-direction:column;gap:12px;}
-
 /* 🔥 GLASS BUTTON */
 .glass-btn{
 position:relative;
@@ -90,23 +77,17 @@ padding:14px 18px;
 border-radius:22px;
 text-decoration:none;
 color:#fff;
-
 background: rgba(255,255,255,0.08);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
-
 border:1.5px solid rgba(255,255,255,0.35);
-
 box-shadow:
 0 10px 30px rgba(0,0,0,0.45),
 inset 0 1px 1px rgba(255,255,255,0.35),
 inset 0 -2px 6px rgba(0,0,0,0.3);
-
 overflow:hidden;
-
 transition:.25s cubic-bezier(.22,1,.36,1);
 }
-
 /* shine */
 .glass-btn::before{
 content:"";
@@ -116,26 +97,21 @@ width:100%;height:50%;
 border-radius:22px;
 background:linear-gradient(to bottom, rgba(255,255,255,.35), transparent);
 }
-
 /* hover */
 .glass-btn:hover{
 background: rgba(255,255,255,0.14);
 }
-
 .glass-btn:active{
 transform:scale(.96);
 }
-
 .glass-btn img{
 width:22px;height:22px;
 }
-
 /* itd */
 .itd-sub{
 font-size:12px;
 opacity:.6;
 }
-
 /* footer */
 footer{
 text-align:center;
@@ -143,12 +119,9 @@ font-size:10px;
 opacity:.25;
 margin-top:10px;
 }
-
 </style>
 </head>
-
 <body>
-
 <!-- 🌌 particles -->
 <div class="particles">
 <script>
@@ -161,54 +134,38 @@ document.querySelector(".particles").appendChild(p);
 }
 </script>
 </div>
-
 <div class="card">
-
 <div class="avatar"></div>
-
 <div class="name">
 <h1>artxikd</h1>
 <i class="fa-solid fa-circle-check check"></i>
 </div>
-
 <div class="desc">ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ</div>
-
 <div class="section">
-
 <a class="glass-btn" href="https://www.instagram.com/artxikd_?igsh=NHUxazkzMmluZmVu&utm_source=qr" target="_blank">
 <i class="fa-brands fa-instagram"></i> Instagram
 </a>
-
 <a class="glass-btn" href="https://t.me/artxikd" target="_blank">
 <i class="fa-brands fa-telegram"></i> Telegram
 </a>
-
 <a class="glass-btn" href="https://vm.tiktok.com/ZNRBYrefc/" target="_blank">
 <i class="fa-brands fa-tiktok"></i> TikTok
 </a>
-
 <a class="glass-btn" href="https://on.soundcloud.com/gOr3fIGj24F6OPVqpZ" target="_blank">
 <img src="soundcloud-logo.png"> SoundCloud
 </a>
-
 <a class="glass-btn" href="https://итд.com/artxikd" target="_blank">
 <img src="itd-logo.png">
 <span class="itd-sub">(мой ник в ИТД — @artxikd)</span>
 </a>
-
-<a class="glass-btn" href="https://t.me/artxikddd" target="_blank">
+<a class="glass-btn" href="https://t.me/+WcnZvjIhRDs1YWNk" target="_blank">
 <i class="fa-solid fa-broadcast-tower"></i> Telegram Channel
 </a>
-
 <a class="glass-btn" href="https://bumpmaps.com/p/pbVs1QRBgAyxD" target="_blank">
 <i class="fa-solid fa-user-plus"></i> Add on Bump
 </a>
-
 </div>
-
 <footer>nothing personal</footer>
-
 </div>
-
 </body>
 </html>
